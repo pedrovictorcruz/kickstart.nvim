@@ -65,6 +65,8 @@ return {
         --  For example, in C this would take you to the header.
         map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+        vim.keymap.set('n', 'vd', vim.diagnostic.open_float, { noremap = true, silent = true })
+
         -- The following two autocommands are used to highlight references of the
         -- word under your cursor when your cursor rests there for a little while.
         --    See `:help CursorHold` for information about when this is executed
@@ -125,6 +127,11 @@ return {
       -- rust_analyzer = {},
       ts_ls = {},
       --
+      kotlin_language_server = {
+        cmd = {
+          os.getenv 'HOME' .. '/dev/kotlin-language-server/server/build/install/server/bin/kotlin-language-server',
+        },
+      },
 
       lua_ls = {
         -- cmd = {...},
@@ -159,6 +166,7 @@ return {
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
     require('mason-lspconfig').setup {
+      ensure_installed = vim.tbl_keys(servers),
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}

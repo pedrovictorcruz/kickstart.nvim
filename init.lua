@@ -68,8 +68,22 @@ require('lazy').setup({
     },
   },
   { 'Bilal2453/luvit-meta', lazy = true },
+
+  -- THEMES
   { 'folke/tokyonight.nvim' },
   { 'rose-pine/neovim', name = 'rose-pine' },
+  {
+    'slugbyte/lackluster.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  { 'miikanissi/modus-themes.nvim', priority = 1000 },
+  {
+    'Mofiqul/adwaita.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  -- END THEME
 
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
