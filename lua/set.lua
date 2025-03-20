@@ -72,3 +72,11 @@ vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.wrap = false
+
+-- Configure inline diagnostics (underlined errors, no virtual text)
+vim.diagnostic.config({
+  virtual_text = false,
+  underline = true,
+  update_in_insert = true,
+  severity_sort = true,
+})
