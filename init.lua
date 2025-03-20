@@ -39,6 +39,8 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require('lazy').setup({
+  checker = { enabled = false, notify = false },
+
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
@@ -80,6 +82,11 @@ require('lazy').setup({
   { 'miikanissi/modus-themes.nvim', priority = 1000 },
   {
     'Mofiqul/adwaita.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  {
+    'blazkowolf/gruber-darker.nvim',
     lazy = false,
     priority = 1000,
   },

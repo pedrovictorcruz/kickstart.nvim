@@ -10,6 +10,7 @@ local file_ignore_patterns = {
   'target/',
   'package%-lock%.json',
   'vendor/',
+  'vendors/',
 }
 
 return {
@@ -54,7 +55,7 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require 'telescope.builtin'
-    vim.keymap.set('n', '<C-p>', function()
+    vim.keymap.set('n', '<leader>fd', function()
       builtin.find_files {
         file_ignore_patterns = file_ignore_patterns,
         previewer = false,
@@ -63,7 +64,7 @@ return {
       }
     end, {})
     vim.keymap.set('n', '<leader>ss', builtin.builtin)
-    vim.keymap.set('n', '<leader>ps', builtin.live_grep)
+    vim.keymap.set('n', '<leader>fs', builtin.live_grep)
     vim.keymap.set('n', '<leader>sd', builtin.diagnostics)
 
     -- Slightly advanced example of overriding default behavior and theme
